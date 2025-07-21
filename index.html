@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -11,6 +10,8 @@
       margin: 0;
       background-color: #f8f9fc;
       color: #222;
+      max-width: 100%;
+      overflow-x: hidden;
     }
     header {
       background-color: #0077cc;
@@ -20,6 +21,7 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      position: relative;
     }
     nav {
       display: flex;
@@ -40,21 +42,18 @@
       color: white;
     }
     .lang-switch {
-     position: absolute;
-  top: 10px;
-  right: 20px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
     }
-    #google_translate_element select {
-      background-color: white;
-      color: #222;
-      border: none;
-      padding: 5px;
-      font-size: 0.9rem;
+    .lang-switch img {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
     }
-    <div class="language-switcher">
-  <img src="https://github.com/LeaGrigo/Contabilidade_Dental/blob/main/br.png" alt="Português" onclick="translatePage('pt')" style="cursor:pointer; margin-right: 10px;">
-  <img src="https://github.com/LeaGrigo/Contabilidade_Dental/blob/main/us.png" alt="English" onclick="translatePage('en')" style="cursor:pointer;">
-</div>
+    #google_translate_element {
+      display: none;
+    }
     main {
       padding: 2rem;
     }
@@ -111,9 +110,12 @@
       <button onclick="mostrarAba('trabalhe-conosco')">Trabalhe Conosco</button>
     </nav>
     <div class="lang-switch">
+      <img src="https://raw.githubusercontent.com/LeaGrigo/Contabilidade_Dental/main/br.png" alt="Português" onclick="mudarIdioma('pt')">
+      <img src="https://raw.githubusercontent.com/LeaGrigo/Contabilidade_Dental/main/us.png" alt="English" onclick="mudarIdioma('en')">
       <div id="google_translate_element"></div>
     </div>
   </header>
+
   <main>
     <section id="quem-somos" class="active">
       <h2>Quem Somos</h2>
@@ -121,58 +123,50 @@
         Somos uma empresa especializada em contabilidade para consultórios dentários. 
         Atuamos com foco em simplificar a gestão contábil e fiscal para dentistas, clínicas e profissionais da área odontológica, oferecendo soluções práticas, seguras e sob medida.
       </p>
-      <img src="https://raw.githubusercontent.com/LeaGrigo/Contabilidade_Dental/refs/heads/main/documento-medico-de-seguro-dentario-para-ilustracao-de-cuidados-de-saude-de-pessoas_109722-3143.avif" alt="Equipe de Contabilidade" class="perfil" />
+      <img src="https://raw.githubusercontent.com/LeaGrigo/Contabilidade_Dental/main/documento-medico-de-seguro-dentario-para-ilustracao-de-cuidados-de-saude-de-pessoas_109722-3143.avif" alt="Equipe de Contabilidade" class="perfil" />
     </section>
 
-```
-<section id="contato">
-  <h2>Entre em Contato</h2>
-  <form>
-    <label for="nome">Nome</label>
-    <input type="text" id="nome" required />
+    <section id="contato">
+      <h2>Entre em Contato</h2>
+      <form>
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" required />
 
-    <label for="email">Email</label>
-    <input type="email" id="email" required />
+        <label for="email">Email</label>
+        <input type="email" id="email" required />
 
-    <label for="mensagem">Mensagem</label>
-    <textarea id="mensagem" rows="5" required></textarea>
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" rows="5" required></textarea>
 
-    <button type="submit">Enviar</button>
-  </form>
-  <h3>Localização</h3>
-  <iframe 
-    src="https://maps.app.goo.gl/NXXt4TeZDqDzpPbp9" 
-    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" 
-  referrerpolicy="no-referrer-when-downgrade">
-    allowfullscreen 
-    loading="lazy">
-  </iframe>
-</section>
+        <button type="submit">Enviar</button>
+      </form>
+      <h3>Localização</h3>
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.3990035111815!2d-46.65387788502205!3d-23.588166784669957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c6c49a8711%3A0x198f8873bce4e0d7!2sPaulista%20Avenue!5e0!3m2!1sen!2sbr!4v1620239611180!5m2!1sen!2sbr"
+        loading="lazy" allowfullscreen></iframe>
+    </section>
 
-<section id="trabalhe-conosco">
-  <h2>Trabalhe Conosco</h2>
-  <form>
-    <label for="nome2">Nome</label>
-    <input type="text" id="nome2" required />
+    <section id="trabalhe-conosco">
+      <h2>Trabalhe Conosco</h2>
+      <form>
+        <label for="nome2">Nome</label>
+        <input type="text" id="nome2" required />
 
-    <label for="email2">Email</label>
-    <input type="email" id="email2" required />
+        <label for="email2">Email</label>
+        <input type="email" id="email2" required />
 
-    <label for="curriculo">Link para Currículo (ou envie por e-mail)</label>
-    <input type="url" id="curriculo" placeholder="https://..." />
+        <label for="curriculo">Link para Currículo (ou envie por e-mail)</label>
+        <input type="url" id="curriculo" placeholder="https://..." />
 
-    <label for="arquivo">Upload do Currículo (.pdf)</label>
-    <input type="file" id="arquivo" accept="application/pdf" />
+        <label for="arquivo">Upload do Currículo (.pdf)</label>
+        <input type="file" id="arquivo" accept="application/pdf" />
 
-    <button type="submit">Enviar Candidatura</button>
-  </form>
-</section>
-```
-
+        <button type="submit">Enviar Candidatura</button>
+      </form>
+    </section>
   </main>
 
-  <!-- Script do Google Tradutor -->
-
+  <!-- Google Translate -->
   <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
@@ -181,21 +175,28 @@
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE
       }, 'google_translate_element');
     }
-  </script>
 
+    function mudarIdioma(idioma) {
+      const select = document.querySelector("#google_translate_element select");
+      if (!select) return;
+      for (let option of select.options) {
+        if (option.value.indexOf(idioma) > -1) {
+          select.value = option.value;
+          select.dispatchEvent(new Event('change'));
+          break;
+        }
+      }
+    }
+  </script>
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-  <!-- Script para abas -->
-
+  <!-- Tabs Script -->
   <script>
     function mostrarAba(id) {
       const secoes = document.querySelectorAll('main section');
-      secoes.forEach(secao => {
-        secao.classList.remove('active');
-      });
+      secoes.forEach(secao => secao.classList.remove('active'));
       document.getElementById(id).classList.add('active');
     }
   </script>
-
 </body>
 </html>
