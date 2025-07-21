@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contabilidade para Dentistas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f8f9fc;
+      color: #222;
+    }
+    header {
+      background-color: #0077cc;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .lang-switch {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    #google_translate_element select {
+      background-color: white;
+      color: #222;
+      border: none;
+      padding: 5px;
+      font-size: 0.9rem;
+    }
+    main {
+      padding: 2rem;
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    h2 {
+      color: #005fa3;
+    }
+    form input, form textarea, form button {
+      display: block;
+      width: 100%;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    form button {
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+    }
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div><strong>Contabilidade Dental</strong></div>
+    <nav>
+      <a href="#quem-somos">Quem Somos</a>
+      <a href="#contato">Contato</a>
+      <a href="#trabalhe-conosco">Trabalhe Conosco</a>
+    </nav>
+    <div class="lang-switch">
+      <div id="google_translate_element"></div>
+    </div>
+  </header>
+
+  <main>
+    <section id="quem-somos">
+      <h2>Quem Somos</h2>
+      <p>
+        Somos uma empresa especializada em contabilidade para consultórios dentários. 
+        Atuamos com foco em simplificar a gestão contábil e fiscal para dentistas, clínicas e profissionais da área odontológica, oferecendo soluções práticas, seguras e sob medida.
+      </p>
+    </section>
+
+    <section id="contato">
+      <h2>Entre em Contato</h2>
+      <form>
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" required />
+
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" rows="5" required></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+      <h3>Localização</h3>
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!..." 
+        allowfullscreen 
+        loading="lazy">
+      </iframe>
+    </section>
+
+    <section id="trabalhe-conosco">
+      <h2>Trabalhe Conosco</h2>
+      <form>
+        <label for="nome2">Nome</label>
+        <input type="text" id="nome2" required />
+
+        <label for="email2">Email</label>
+        <input type="email" id="email2" required />
+
+        <label for="curriculo">Link para Currículo (ou envie por e-mail)</label>
+        <input type="url" id="curriculo" placeholder="https://..." />
+
+        <button type="submit">Enviar Candidatura</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Script do Google Tradutor -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'pt',
+        includedLanguages: 'pt,en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>
